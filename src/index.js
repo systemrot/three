@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import "./main.css";
 
 // const scene = new THREE.Scene();
 
@@ -24,6 +25,19 @@ function init() {
     renderer = new THREE.WebGLRenderer( { antialias: true } );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
+    document.body.addEventListener("mousemove", (e) => {
+    	// console.log(e.layerY / (window.innerHeight));
+    	// console.log(camera);
+    	console.log(camera.position.x);
+    	// console.log(camera.position.y);
+    	const halfWidth = window.innerWidth / 2;
+    	// if(e.layerX > (halfWidth)){
+    	// 	camera.position.y = e.layerX / window.innerWidth; 
+    	// }else{
+    	// 	camera.position.y = e.layerX / window.innerWidth;
+    	// }
+    	camera.position.z = 1 + e.layerY / window.innerHeight;
+    })
  
 }
  
